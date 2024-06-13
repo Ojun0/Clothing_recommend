@@ -3,39 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/home.css">
     <title>Document</title>
 </head>
-<body>
-    <div class="Title">사진을 넣어주세요</div>
-    <form action="/" method="post">
-        <input type="image" name="img" required>
-        <label>image</label>
-        <input type="text" name="url" required>
-        <label>image url</label>
-        <input type="text" name="url" required>
-        <label>구매처 주소</label>
-        <input type="text" name="wear" required>
-        <label>옷 종류(top, pants, hat)</label>
+<body style="background-color: #f8f9fd;">
+    <!-- 제목 바꿔보자-->
+    <div class="Title">의류 특징을 통한 매칭 서비스</div> 
+    
+    <!-- 값 입력 -->
+    <img id="previewImage" src="/img/ex.jpg">
+
+
+    <form id="form" method="post">
+        <div class="row_wrap">
+            <div class="imgInfo"> 위 사진과 같이 전신 사진을 올려주세요 </div>
+            <!-- <div class="row">
+                <span class="tag">id</span>
+                <input type="text" name="id" placeholder="중복되는 아이디를 적지 말아주세요" required>
+            </div> -->
+            <div class="row">
+                <span class="tag">image url</span>
+                <input type="text" name="url" placeholder="이미지 url을 넣어주세요" required>
+            </div>
+            <!-- <div class="row">
+                <span class="tag">옷 종류 </span>
+                <input type="text" name="wear" placeholder="예시-top, pants" required>
+            </div> -->
+            <div class="select">
+                <span class="sex">성별</span>
+                <input type="checkbox" id="select" name="sex" value="male"><label for="select">남성</label>
+                <input type="checkbox" id="select2" name="sex" value="female"><label for="select2">여성</label>
+                <input type="checkbox" id="select3" name="sex" value="unisex"><label for="select3">상관없음</label>
+            </div>
+            <button type="submit" class="btn">분석하기</button>
+        </div>
     </form>
-    <div class="info">이미지 가이드</div>
-    <div class="suggest">권장 기준</div>
-    <div class="infoContent">이미지 크기 :</div>
-    <span>640 x 640px, 1280 x 720px, 1080 x 1080px</span>
-    <div class="infoContent">이미지 해상도 :</div>
-    <span>72dpi ~ 300dpi</span>
-    <div class="infoContent">이미지 형식 :</div>
-    <span>JPG, JPEG, PNG, GIF, BMP, TIF, TIFF, WEBP</span>
-    <div class="infoContent">이미지 비율</div>
-    <span>1:2 ~ 2:1</span>
-    <div class="limit">제한 기준</div>
-    <div class="infoContent">이미지 크기 :</div>
-    <span>최소 300 x 300px, 최대 16,383 x 16,383px</span>
-    <div class="infoContent">이미지 용량 :</div>
-    <span>최대 3Mb (Base64), 최대 20Mb (url)</span>
-    <div class="infoContent">이미지 형식 :</div>
-    <span>JPG, JPEG, PNG, GIF, BMP, TIF, TIFF, WEBP외 이미지 포맷</span>
-    <div class="infoContent">이미지 비율</div>
-    <span>1:5 ~ 5:1</span>
-    <div></div>
+
+    <!-- 안내사항 -->    
+        <div class="infoWrap">
+            <div class="infoTitle">
+                <div class="info">이미지 가이드</div>
+            </div>
+            <div class="infoContent">
+            <div class="col">
+                <div class="subtitle">권장 기준</div>
+                <div class="infoContent">이미지 크기 :</div>
+                <span>640 x 640px, 1280 x 720px, 1080 x 1080px</span>
+                <div class="infoContent">이미지 해상도 :</div>
+                <span>72dpi ~ 300dpi</span>
+                <div class="infoContent">이미지 형식 :</div>
+                <span>JPG, JPEG, PNG, GIF, BMP, TIF, TIFF, WEBP</span>
+                <div class="infoContent">이미지 비율</div>
+                <span>1:2 ~ 2:1</span>
+            </div>
+            <div class="col">
+                <div class="subtitle">제한 기준</div>
+                <div class="infoContent">이미지 크기 :</div>
+                <span>최소 300 x 300px, 최대 16,383 x 16,383px</span>
+                <div class="infoContent">이미지 용량 :</div>
+                <span>최대 3Mb (Base64), 최대 20Mb (url)</span>
+                <div class="infoContent">이미지 형식 :</div>
+                <span>JPG, JPEG, PNG, GIF, BMP, TIF, TIFF, WEBP외 이미지 포맷</span>
+                <div class="infoContent">이미지 비율</div>
+                <span>1:5 ~ 5:1</span>
+            </div>
+        </div>
+        </div>
+
+
+    <script>
+        function generateID() {
+            return Math.floor(1000 + Math.random() * 9000).toString();
+        }
+
+        document.querySelector('input[name="url"]').addEventListener('input', function(e) {
+            const imageUrl = e.target.value;
+            document.getElementById('previewImage').src = imageUrl;
+        });
+        
+        // input 값 api로 보내기
+        document.getElementById('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const id = generateID();
+            const url = e.target.url.value;
+            // const wear = e.target.wear.value;
+            const sex = document.querySelector('input[name="sex"]:checked')?.value;
+            const wear = 'TOP'
+            // input 값을 localStorage에 저장
+            localStorage.setItem('id', id);
+            localStorage.setItem('url', url)
+            localStorage.setItem('wear', wear);
+            localStorage.setItem('sex', sex);
+
+            const data = {
+                options: ["BLOCK_DUPLICATES"],
+                products: [
+                    {
+                        id: id,
+                        url: url,
+                        salesUrl: "https://www.musinsa.com/main/113",
+                        detection: "TOP",
+                    }
+                ]
+            };
+
+            fetch('-', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-api-key': '-'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log('Success:', result);
+                // 결과 페이지로 리디렉션
+                window.location.href = '/recommendWear';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+
+
+    </script>
 </body>
 </html>

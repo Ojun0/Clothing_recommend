@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('recommendwear:server');
+var debug = require('debug')('db-team:server');
 var http = require('http');
 
 /**

@@ -4,22 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/recommendWear.css">
 </head>
-<body>
-    <div class="result">이미지 결과</div>
-    <div class="resultContents">
-        
+<body style="background-color: #F2F5FF;">
+    <!-- 이미지  -->
+    <div class="container">
+    <div class="imgWrap">
+        <div id="userimg"></div>
+        <div class="info">입력한 이미지</div>
     </div>
-    <div class="recommendWearContainer">
-        <div class="recommendWearSite">
-            <% for(i=0, i,i++;) { %>
-            <% } %>
-            <!-- 추천 옷  -->
-        </div>
-        <div class="recommendWearTag">
-            <!-- 추천 태그 색상, 브랜드, 등등 -->
-        </div>
 
+    <!-- 분석 내용 -->
+    <div class="recommendWearContainer">
+        <div class="rowWrap">
+            <div class="btnWrap">
+            <div class="result">상의 분석 결과</div>
+            <button onclick="openTop()" class="store">추천 상품 바로 가기</button>
+            </div>
+
+            <div class="content" id="imageResultContent">
+                <!-- 이미지 결과 표시 영역 -->
+            </div>
+        </div>
+        <div class="rowWrap">
+            <div class="btnWrap">
+            <div class="result">하의 분석 결과</div>
+            <button onclick="openbottom()" class="store">추천 상품 바로 가기</button>
+            </div>
+            <div class="content" id="imageResultContent2">
+                <!-- 추천 스타일 표시 영역 -->
+            </div>
+        </div>
     </div>
+    </div>
+
+    <script src="/js/recommendWear.js">
+    </script>
+
+
 </body>
 </html>

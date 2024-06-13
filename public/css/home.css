@@ -1,0 +1,189 @@
+*{
+    font-weight: bold;
+    /* text-align: center; */
+    color: #6A6e83
+}
+
+
+/* 제목 */
+.Title{
+    font-size: 60px;
+    margin: 30px;
+    text-align: center;
+    color: #1f1f1f;
+}
+
+img{
+    height: 340px;
+    margin: auto;
+    display: block;
+}
+
+/* input css */
+.imgInfo{
+    margin: 10px 0px 0px 0px;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.tag{
+    display: flex;
+    align-items: center;
+    width: 150px;
+    height: 40px;
+    font-weight: bold;
+    color: #6A6e83
+}
+input{
+    flex: 1;
+    border: 0cap;
+    border-radius: 30px;
+    background-color: #cddeff;
+    width: 300px;
+    height: 38px;
+    font-size: 13px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-right: 40px;
+		
+}
+::placeholder{
+    font-size: 10px;
+    color: #6A6e8380;
+    text-indent: 8px;
+}
+.row_wrap {
+    width: 600px;
+    height: 220px;
+    border-radius: 30px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+}
+.row {
+    display: flex;
+    padding: 10px 0;
+}
+.btn{
+    width: 160px;
+    height: 40px;
+    border-radius: 30px;
+    margin: 10px 0px 0px 230px;
+    border: 0cap;
+    background-color: #2c3d8f;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    line-height: 40px;
+    transition: all 0.5s ease 0s; 
+}
+
+.btn:hover{
+    background-color: #5A81Fa;
+    box-shadow: 0px 15px 20px rgba(27, 39, 63, 0.4);
+    transform: translateY(-3px); scale: (120%);
+}
+.sex{
+    margin-right: 30px;
+}
+.select {
+    padding: 15px 10px;
+}
+.select input[type=checkbox]{
+    display: none;
+}
+.select input[type=checkbox]+label{
+    display: inline-block;
+    cursor: pointer;
+    height: 24px;
+    width: 90px;
+    border-style: none;
+    border-radius: 15px;
+    line-height: 24px;
+    text-align: center;
+    font-weight:bold;
+    font-size:13px;
+}
+.select input[type=checkbox]+label{
+    background-color: #cddeff;
+    color: #6A6e83;
+}
+.select input[type=checkbox]:checked+label{
+    background-color: #5A81Fa;
+    color: #fff;
+}
+
+/* a{
+    width: 160px;
+    height: 40px;
+    border-radius: 30px;
+    margin-top: 10px;
+    border: 0cap;
+    background-color: #5A81Fa;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    line-height: 40px;
+    font-size: 14px;
+    text-decoration-line:none
+} */
+
+
+
+
+/* 안내사항 css */
+.infoTitle{
+    display: flex;
+    justify-content: center;
+}
+.infoContent{
+    display: flex;
+    justify-content: center;
+}
+.infoWrap{
+    margin-top: 10px;
+    background-color: #F2f5ff;
+    
+}
+.info{
+    width: 380px;
+    height: 60px;
+    font-size: 30px;
+    margin: 10px;
+    border-radius: 30px;
+    background-color: #5A81Fa;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    line-height: 64px;
+}
+.subtitle{
+    width: 300px;
+    height: 40px;
+    font-size: 22px;
+    border-radius: 30px;
+    background-color: #2c3d8f;
+    color: #FFFFFF;
+    margin: 5px 0px 8px 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    line-height: 44px;
+}
+.wrap{
+    background-color: #cddeff;
+}
+.infoContent{
+    color: #6A6e83;
+    margin: 2px 0px 2px 20px;
+}
+span{
+    color: #6A6e83;
+    margin: 2px 0px 2px 20px;
+}
